@@ -25,6 +25,10 @@ For development documentation, start with [Development](Documentation/developmen
 * picoTCP, [source code](https://github.com/tass-belgium/picotcp)
 * Xiaochen Wang's TCP/IP stack, [source code](https://github.com/chobits/tapip)
 
+* [徒手造了个轮子 — 实现epoll](https://juejin.im/post/5c8b74ecf265da2dc707441c)
+* [单线程用户态TCP/IP协议栈，epoll实现，包含服务器案例，并发测试案例](https://github.com/wangbojing/NtyTcp/)
+* [SystemProgramming](https://github.com/angrave/SystemProgramming/wiki)
+
 # License
 
 See [LICENSE.md](LICENSE.md) (MIT)
