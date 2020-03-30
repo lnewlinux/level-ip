@@ -35,9 +35,9 @@ An example from my (Arch) Linux machine, where `wlp2s0` is my outgoing interface
 
     $ sysctl -w net.ipv4.ip_forward=1
     $ iptables -I INPUT --source 10.0.0.0/24 -j ACCEPT
-    $ iptables -t nat -I POSTROUTING --out-interface wlp2s0 -j MASQUERADE
-    $ iptables -I FORWARD --in-interface wlp2s0 --out-interface tap0 -j ACCEPT
-    $ iptables -I FORWARD --in-interface tap0 --out-interface wlp2s0 -j ACCEPT
+    $ iptables -t nat -I POSTROUTING --out-interface enp0s3 -j MASQUERADE
+    $ iptables -I FORWARD --in-interface enp0s3 --out-interface tap0 -j ACCEPT
+    $ iptables -I FORWARD --in-interface tap0 --out-interface enp0s3 -j ACCEPT
 
 Now, packets coming from `lvl-ip` (10.0.0.4/24 in this case) should be NATed by the host Linux interfaces and traverse the FORWARD chain correctly to the host's outgoing gateway.
 
@@ -52,7 +52,7 @@ When you've built lvl-ip and setup your host stack to forward packets, you can t
 The userspace TCP/IP stack should start. Now, first test communications with the provided applications:
 
     $ cd tools
-    $ ./level-ip ../apps/curl/curl google.com 80
+    $ ./level-ip ../apps/curl/curl baidu.com 80
 
 `./level-ip` is just a bash-script that allows `liblevelip.so` to take precedence over the libc socket API calls. 
 

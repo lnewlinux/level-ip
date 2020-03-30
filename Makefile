@@ -1,4 +1,4 @@
-CPPFLAGS = -I include -Wall -Werror -pthread
+CPPFLAGS = -I include -Wall -Werror -Bstatic -pthread
 
 src = $(wildcard src/*.c)
 obj = $(patsubst src/%.c, build/%.o, $(src))
@@ -14,7 +14,7 @@ lvl-ip: $(obj)
 build/%.o: src/%.c ${headers}
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-debug: CFLAGS+= -DDEBUG_SOCKET -DDEBUG_TCP -g -fsanitize=thread
+debug: CFLAGS+= -DDEBUG_API -DDEBUG_SOCKET -DDEBUG_TCP -DDEBUG_ETH -DDEBUG_TIMER -g -fsanitize=thread
 debug: lvl-ip
 
 apps: $(apps)

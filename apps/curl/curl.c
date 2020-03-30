@@ -55,6 +55,11 @@ int main(int argc, char **argv)
     }
 
     sock = socket(AF_INET, SOCK_STREAM, 0);
+    
+    if (sock == -1) {
+        perror("Curl could not establish socket");
+        return 1;
+    }
 
     if (connect(sock, &addr, 16) == -1) {
         perror("Curl could not establish connection");

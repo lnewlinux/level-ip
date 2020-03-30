@@ -7,9 +7,9 @@ permalink: lets-code-tcp-ip-stack-1-ethernet-arp/
 description: "Writing your own TCP/IP stack may seem like a daunting task. Indeed, TCP has accumulated many specifications over its lifetime of more than thirty years. The core specification, however, is seemingly compact[^tcp-roadmap] - the important parts being TCP header parsing, the state machine, congestion control and retransmission timeout computation."
 ---
 
-Writing your own TCP/IP stack may seem like a daunting task. Indeed, TCP has accumulated many specifications over its lifetime of more than thirty years. The core specification, however, is seemingly compact[^tcp-roadmap] - the important parts being TCP header parsing, the state machine, congestion control and retransmission timeout computation.
+Writing your own TCP/IP stack may seem like a daunting(气馁的) task. Indeed, TCP has accumulated(积累了) many specifications over its lifetime of more than thirty(30) years. The core specification, however, is seemingly compact(紧凑)[^tcp-roadmap] - the important parts being TCP header parsing, the state machine, congestion control(拥塞控制) and retransmission timeout computation(重传超时计算).
 
-The most common layer 2 and layer 3 protocols, Ethernet and IP respectively, pale in comparison to TCP's complexity. In this blog series, we will implement a minimal userspace TCP/IP stack for Linux. 
+The most common layer 2 and layer 3 protocols, Ethernet and IP respectively(分别), pale in comparison to TCP's complexity. In this blog series, we will implement a minimal userspace TCP/IP stack for Linux. 
 
 The purpose of these posts and the resulting software is purely educational - to learn network and system programming at a deeper level.
 
@@ -30,6 +30,7 @@ As we want to build the networking stack from the layer 2 up, we need a TAP devi
 {% highlight c %}
 /*
  * Taken from Kernel Documentation/networking/tuntap.txt
+ * link https://www.kernel.org/doc/Documentation/networking/tuntap.txt
  */
 int tun_alloc(char *dev)
 {
